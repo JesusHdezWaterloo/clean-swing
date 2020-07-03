@@ -1,19 +1,31 @@
 package com.clean.swing.app;
 
-import com.clean.swing.app.dashboard.DashboardExtendedDown;
-import com.clean.swing.app.dashboard.DashboardExtendedDownUp;
-import com.clean.swing.app.dashboard.DashboardSimple;
+import com.clean.core.app.services.ExceptionHandlerService;
+import com.clean.core.app.services.NavigationService;
+import com.clean.core.app.services.NotificationService;
+import com.clean.core.domain.services.ResourceService;
+import com.clean.swing.app.dashboard.MapeableContainer;
+import java.util.List;
 
 /**
  *
  * @author Jesus Hernandez Barrios (jhernandezb96@gmail.com)
  */
-public interface SwingModule {
+public interface AbstractSwingApplication extends NavigationService {
 
-    public void register(DashboardSimple dashBoard);
+    public ExceptionHandlerService exceptionHandler();
 
-    public void register(DashboardExtendedDownUp dashBoard);
+    public NotificationService notification();
 
-    public void register(DashboardExtendedDown dashBoard);
+    public NavigationService navigation();
 
+    public ResourceService resource();
+
+    public MapeableContainer dashboard();
+
+    public List<AbstractSwingModule> installedModules();
+
+    public void registerModule(AbstractSwingModule moduleToInstall);
+
+    public void run() throws Exception;
 }

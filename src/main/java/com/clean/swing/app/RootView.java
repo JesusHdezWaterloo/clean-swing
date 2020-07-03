@@ -6,7 +6,6 @@ import com.clean.core.app.services.NavigationService;
  *
  * @author Jesus Hernandez Barrios (jhernandezb96@gmail.com)
  */
-public interface AbstractSwingModule extends NavigationService {
+public interface RootView extends NavigationService {
 
-    public void register(AbstractSwingApplication dashBoard);
 }
