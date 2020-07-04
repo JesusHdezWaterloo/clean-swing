@@ -21,11 +21,29 @@ public interface AbstractSwingApplication extends NavigationService {
 
     public ResourceService resource();
 
-    public DashBoardSimple dashboard();
-
     public List<AbstractSwingModule> installedModules();
 
     public void registerModule(AbstractSwingModule... moduleToInstall);
 
-    public void run() throws Exception;
+    public RootView rootView();
+
+    /**
+     * Call to all start in the folowing order: 1 - startServices 2 -
+     * startRootView
+     *
+     * @throws Exception
+     */
+    public default void run() throws Exception {
+        startServices();
+        startRootView();
+        startApplication();        
+        rootView().dashboard().update(rootView().dashboard().getMap());//este es que al final actualiza todo
+        rootView().dashboard().format();
+    }
+
+    public void startServices() throws Exception;
+
+    public void startRootView() throws Exception;
+
+    public void startApplication() throws Exception;
 }

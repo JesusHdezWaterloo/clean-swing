@@ -10,6 +10,8 @@ import javax.swing.Action;
  */
 public class DashboardConstants {
 
+    public static final String FIRE_CHILD_SELECTED = "Child.Selected";
+
     public static final String MAIN_ELEMENT = "Main.Element";
     public static final String UP_ELEMENT = "Up.Element";
     public static final String UP_COMPANY = "Up.Company";
