@@ -4,7 +4,7 @@ import com.clean.core.app.services.ExceptionHandlerService;
 import com.clean.core.app.services.NavigationService;
 import com.clean.core.app.services.NotificationService;
 import com.clean.core.domain.services.ResourceService;
-import com.clean.swing.app.dashboard.MapeableContainer;
+import com.clean.swing.app.dashboard.DashBoardSimple;
 import java.util.List;
 
 /**
@@ -21,11 +21,11 @@ public interface AbstractSwingApplication extends NavigationService {
 
     public ResourceService resource();
 
-    public MapeableContainer dashboard();
+    public DashBoardSimple dashboard();
 
     public List<AbstractSwingModule> installedModules();
 
-    public void registerModule(AbstractSwingModule moduleToInstall);
+    public void registerModule(AbstractSwingModule... moduleToInstall);
 
     public void run() throws Exception;
 }

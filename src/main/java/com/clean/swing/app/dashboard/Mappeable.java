@@ -5,6 +5,8 @@ import java.util.HashMap;
 /**
  *
  * @author Jesus Hernandez Barrios (jhernandezb96@gmail.com)
+ * @param <K> type of the Key
+ * @param <V> type of the Value
  */
 public interface Mappeable<K, V> {
 
@@ -14,18 +16,18 @@ public interface Mappeable<K, V> {
      * previous value.<\br>
      *
      * @param key
-     * @param component
+     * @param value
      */
-    public void add(K key, V component);
+    public void addKeyValue(K key, V value);
 
     /**
-     * Call to add and inmediatly after to update.
+     * Call to addKeyValue and inmediatly after to update.
      *
      * @param key
-     * @param component
+     * @param value
      */
-    public default void addUpdate(K key, V component) {
-        add(key, component);
+    public default void addUpdate(K key, V value) {
+        addKeyValue(key, value);
         update(getMap());
     }
 
@@ -33,18 +35,18 @@ public interface Mappeable<K, V> {
      * Directly override the key with component.<\br>
      *
      * @param key
-     * @param component
+     * @param value
      */
-    public void put(K key, V component);
+    public void putKeyValue(K key, V value);
 
     /**
-     * Call to put and inmediatly after to update.
+     * Call to putKeyValue and inmediatly after to update.
      *
      * @param key
-     * @param component
+     * @param value
      */
-    public default void putUpdate(K key, V component) {
-        put(key, component);
+    public default void putUpdate(K key, V value) {
+        putKeyValue(key, value);
         update(getMap());
     }
 
@@ -94,8 +96,8 @@ public interface Mappeable<K, V> {
 
     public boolean supportKey(K key);
 
-    public HashMap<String, Object> getMap();
+    public HashMap<K, V> getMap();
 
-    public void update(HashMap<String, Object> map);
+    public void update(HashMap<K, V> map);
 
 }

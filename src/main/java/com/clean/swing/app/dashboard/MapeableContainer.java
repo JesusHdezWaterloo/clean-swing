@@ -1,12 +1,12 @@
 package com.clean.swing.app.dashboard;
 
-import java.awt.Component;
 import java.awt.Container;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
 /**
+ * Only support the Constants defined in DashboardConstants
  *
  * @author Jesus Hernandez Barrios (jhernandezb96@gmail.com)
  */
@@ -15,9 +15,9 @@ public abstract class MapeableContainer extends Container implements Mappeable<S
     protected final HashMap<String, Object> elementsMap = new HashMap<>();
 
     @Override
-    public void add(String key, Object component) {
+    public void addKeyValue(String key, Object component) {
         Class clss = DashboardConstants.getClassType(key);
-        if (clss.getClass().equals(List.class)) {
+        if (clss.equals(List.class)) {
             List oldList;
             Object list = elementsMap.get(key);
             if (list == null) {
@@ -33,9 +33,9 @@ public abstract class MapeableContainer extends Container implements Mappeable<S
     }
 
     @Override
-    public void put(String key, Object component) {
+    public void putKeyValue(String key, Object component) {
         Class clss = DashboardConstants.getClassType(key);
-        if (clss.getClass().equals(List.class)) {
+        if (clss.equals(List.class)) {
             List oldList = new ArrayList();
             oldList.add(component);
             elementsMap.put(key, oldList);
