@@ -65,6 +65,11 @@ public abstract class DefaultRootView extends JFrame implements com.clean.swing.
     }
 
     @Override
+    public Component getView(String string) {
+        return null;
+    }
+
+    @Override
     public DashBoardSimple dashboard() {
         return DASHBOARD;
     }

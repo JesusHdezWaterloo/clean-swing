@@ -22,6 +22,7 @@ public abstract class DefaultSwingApplication implements AbstractSwingApplicatio
         }
         rootView().dashboard().update(rootView().dashboard().getMap());//este es que al final actualiza todo
         rootView().dashboard().format();
+        rootView().dashboard().revalidate();
     }
 
 }

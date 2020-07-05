@@ -10,4 +10,6 @@ public interface CardComponent<ComponentType> {
     public abstract void addView(String name, ComponentType compoment);
 
     public abstract void showView(String name);
+
+    public abstract ComponentType getView(String name);
 }
