@@ -13,6 +13,4 @@ public interface RootView extends NavigationService {
     public static final String LOGIN_NAME = "LOGIN";
 
     public DashBoardSimple dashboard();
-
-    public void registerModule(AbstractSwingModule... moduleToInstall);
 }
