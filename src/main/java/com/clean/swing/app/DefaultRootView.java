@@ -5,6 +5,7 @@ import com.clean.swing.utils.CardComponent;
 import java.awt.BorderLayout;
 import java.awt.CardLayout;
 import java.awt.Component;
+import java.beans.PropertyChangeListener;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
@@ -12,13 +13,14 @@ import javax.swing.JPanel;
  *
  * @author Jesus Hernandez Barrios (jhernandezb96@gmail.com)
  */
-public abstract class DefaultRootView extends JFrame implements com.clean.swing.app.RootView, CardComponent<Component> {
+public abstract class DefaultRootView extends RootView implements CardComponent<Component> {
 
     private DashBoardSimple DASHBOARD;
 
     private final CardLayout cards = new CardLayout();
 
-    public DefaultRootView() {
+    public DefaultRootView(PropertyChangeListener listener) {
+        super(listener);
         initComponents();
         this.setVisible(true);
     }
@@ -51,6 +53,7 @@ public abstract class DefaultRootView extends JFrame implements com.clean.swing.
      * Exit the Application
      */
     private void exitForm(java.awt.event.WindowEvent evt) {
+        firePropertyChange(ON_WINDOWS_CLOSING, null, evt);
         System.exit(0);
     }
 

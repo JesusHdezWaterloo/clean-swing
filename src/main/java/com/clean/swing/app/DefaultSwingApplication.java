@@ -1,10 +1,13 @@
 package com.clean.swing.app;
 
+import java.beans.PropertyChangeEvent;
+import java.beans.PropertyChangeListener;
+
 /**
  *
  * @author Jesus Hernandez Barrios (jhernandezb96@gmail.com)
  */
-public abstract class DefaultSwingApplication implements AbstractSwingApplication {
+public abstract class DefaultSwingApplication implements AbstractSwingApplication, PropertyChangeListener {
 
     @Override
     public void navigateTo(String string, Object... o) {
@@ -25,4 +28,14 @@ public abstract class DefaultSwingApplication implements AbstractSwingApplicatio
         rootView().dashboard().revalidate();
     }
 
+    @Override
+    public void propertyChange(PropertyChangeEvent evt) {
+        switch (evt.getPropertyName()) {
+            case RootView.ON_WINDOWS_CLOSING:
+                closeApplication();
+                break;
+            default:
+                return;
+        }
+    }
 }

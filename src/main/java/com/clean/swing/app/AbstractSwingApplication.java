@@ -4,7 +4,6 @@ import com.clean.core.app.services.ExceptionHandlerService;
 import com.clean.core.app.services.NavigationService;
 import com.clean.core.app.services.NotificationService;
 import com.clean.core.domain.services.ResourceService;
-import com.clean.swing.app.dashboard.DashBoardSimple;
 import java.util.List;
 
 /**
@@ -28,15 +27,19 @@ public interface AbstractSwingApplication extends NavigationService {
     public RootView rootView();
 
     /**
-     * Call to all start in the folowing order: 1 - startServices 2 -
-     * startRootView
+     * Call to all start in the folowing order:<\br>
+     * 1 - startApplication <\br>
+     * 2 - startServices <\br>
+     * 3 - startRootView <\br>
+     * 4 - dashboard.update <\br>
+     * 5 - dashboard.format <\br>
      *
      * @throws Exception
      */
     public default void run() throws Exception {
+        startApplication();
         startServices();
         startRootView();
-        startApplication();        
         rootView().dashboard().update(rootView().dashboard().getMap());//este es que al final actualiza todo
         rootView().dashboard().format();
     }
@@ -46,4 +49,6 @@ public interface AbstractSwingApplication extends NavigationService {
     public void startRootView() throws Exception;
 
     public void startApplication() throws Exception;
+
+    public void closeApplication();
 }
