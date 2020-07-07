@@ -2,12 +2,16 @@ package com.clean.swing.app;
 
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
  * @author Jesus Hernandez Barrios (jhernandezb96@gmail.com)
  */
 public abstract class DefaultSwingApplication implements AbstractSwingApplication, PropertyChangeListener {
+
+    private final static ArrayList<AbstractSwingModule> INSTALLED_MODULES = new ArrayList<>();
 
     @Override
     public void navigateTo(String string, Object... o) {
@@ -37,5 +41,10 @@ public abstract class DefaultSwingApplication implements AbstractSwingApplicatio
             default:
                 return;
         }
+    }
+
+    @Override
+    public List<AbstractSwingModule> installedModules() {
+        return INSTALLED_MODULES;
     }
 }
