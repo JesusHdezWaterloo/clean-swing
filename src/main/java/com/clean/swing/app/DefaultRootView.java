@@ -1,12 +1,12 @@
 package com.clean.swing.app;
 
 import com.clean.swing.app.dashboard.DashBoardSimple;
+import com.clean.swing.app.login.LoginSimple;
 import com.clean.swing.utils.CardComponent;
 import java.awt.BorderLayout;
 import java.awt.CardLayout;
 import java.awt.Component;
 import java.beans.PropertyChangeListener;
-import javax.swing.JFrame;
 import javax.swing.JPanel;
 
 /**
@@ -16,6 +16,8 @@ import javax.swing.JPanel;
 public abstract class DefaultRootView extends RootView implements CardComponent<Component> {
 
     private DashBoardSimple DASHBOARD;
+
+    private LoginSimple LOGIN;
 
     private final CardLayout cards = new CardLayout();
 
@@ -27,6 +29,12 @@ public abstract class DefaultRootView extends RootView implements CardComponent<
 
     protected void setDashBoard(DashBoardSimple dashboard) {
         this.DASHBOARD = dashboard;
+        this.addView(DASH_NAME, DASHBOARD);
+    }
+
+    protected void setLogin(LoginSimple login) {
+        this.LOGIN = login;
+        this.addView(LOGIN_NAME, LOGIN);
     }
 
     private void initComponents() {
@@ -75,6 +83,11 @@ public abstract class DefaultRootView extends RootView implements CardComponent<
     @Override
     public DashBoardSimple dashboard() {
         return DASHBOARD;
+    }
+
+    @Override
+    public LoginSimple login() {
+        return LOGIN;
     }
 
     @Override

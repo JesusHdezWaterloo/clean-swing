@@ -2,6 +2,7 @@ package com.clean.swing.app;
 
 import com.clean.core.app.services.NavigationService;
 import com.clean.swing.app.dashboard.DashBoardSimple;
+import com.clean.swing.app.login.LoginSimple;
 import java.awt.HeadlessException;
 import java.beans.PropertyChangeListener;
 import javax.swing.JFrame;
@@ -21,4 +22,6 @@ public abstract class RootView extends JFrame implements NavigationService {
     }
 
     public abstract DashBoardSimple dashboard();
+
+    public abstract LoginSimple login();
 }

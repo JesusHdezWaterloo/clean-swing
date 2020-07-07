@@ -1,6 +1,7 @@
 package com.clean.swing.app;
 
 import com.clean.core.app.services.ExceptionHandlerService;
+import com.clean.core.app.services.LoginHandlerService;
 import com.clean.core.app.services.NavigationService;
 import com.clean.core.app.services.NotificationService;
 import com.clean.core.domain.services.ResourceService;
@@ -19,6 +20,8 @@ public interface AbstractSwingApplication extends NavigationService {
     public NavigationService navigation();
 
     public ResourceService resource();
+
+    public LoginHandlerService login();
 
     public List<AbstractSwingModule> installedModules();
 
