@@ -24,7 +24,6 @@ public abstract class DefaultRootView extends RootView implements CardComponent<
     public DefaultRootView(PropertyChangeListener listener) {
         super(listener);
         initComponents();
-        this.setVisible(true);
     }
 
     protected void setDashBoard(DashBoardSimple dashboard) {
