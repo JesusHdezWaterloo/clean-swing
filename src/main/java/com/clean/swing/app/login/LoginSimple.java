@@ -1,8 +1,5 @@
 package com.clean.swing.app.login;
 
-import com.clean.swing.app.dashboard.*;
-import com.clean.swing.utils.CardComponent;
-import java.awt.Component;
 import java.awt.Container;
 import java.awt.event.ActionListener;
 

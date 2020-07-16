@@ -47,4 +47,9 @@ public abstract class DefaultSwingApplication implements AbstractSwingApplicatio
     public List<AbstractSwingModule> installedModules() {
         return INSTALLED_MODULES;
     }
+
+    @Override
+    public void show() {
+        rootView().setVisible(true);
+    }
 }
