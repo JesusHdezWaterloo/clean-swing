@@ -22,8 +22,8 @@ public abstract class DefaultSwingApplication implements AbstractSwingApplicatio
     }
 
     @Override
-    public void registerModule(AbstractSwingModule... modulesToInstall) {
-        for (AbstractSwingModule modulo : modulesToInstall) {
+    public void registerModule(AbstractSwingMainModule... modulesToInstall) {
+        for (AbstractSwingMainModule modulo : modulesToInstall) {
             modulo.register(this);
             this.installedModules().add(modulo);
         }

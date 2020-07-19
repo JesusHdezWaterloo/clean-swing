@@ -11,7 +11,7 @@ public interface AbstractSwingApplication extends NavigationService {
 
     public List<AbstractSwingModule> installedModules();
 
-    public void registerModule(AbstractSwingModule... moduleToInstall);
+    public void registerModule(AbstractSwingMainModule... moduleToInstall);
 
     public RootView rootView();
 
