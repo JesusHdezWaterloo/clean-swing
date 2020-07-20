@@ -15,6 +15,8 @@ public interface AbstractSwingApplication extends NavigationService {
 
     public RootView rootView();
 
+    public void initRootView(RootView root);
+
     /**
      * Call to all start in the folowing order:<\br>
      * 1 - startApplication <\br>
@@ -26,20 +28,14 @@ public interface AbstractSwingApplication extends NavigationService {
      * @throws Exception
      */
     public default void run() throws Exception {
-        startApplication();
-        startServices();
-        startRootView();
+        init();
         rootView().dashboard().update(rootView().dashboard().getMap());//este es que al final actualiza todo
         rootView().dashboard().format();
     }
 
-    public void startServices() throws Exception;
-
-    public void startRootView() throws Exception;
-
-    public void startApplication() throws Exception;
+    public void init() throws Exception;
 
     public void closeApplication();
-    
+
     public void show();
 }

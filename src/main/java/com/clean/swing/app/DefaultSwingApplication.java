@@ -12,6 +12,7 @@ import java.util.List;
 public abstract class DefaultSwingApplication implements AbstractSwingApplication, PropertyChangeListener {
 
     private final static ArrayList<AbstractSwingModule> INSTALLED_MODULES = new ArrayList<>();
+    private RootView ROOT_VIEW;
 
     @Override
     public void navigateTo(String string, Object... o) {
@@ -51,5 +52,15 @@ public abstract class DefaultSwingApplication implements AbstractSwingApplicatio
     @Override
     public void show() {
         rootView().setVisible(true);
+    }
+
+    @Override
+    public RootView rootView() {
+        return ROOT_VIEW;
+    }
+
+    @Override
+    public void initRootView(RootView root) {
+        this.ROOT_VIEW = root;
     }
 }
