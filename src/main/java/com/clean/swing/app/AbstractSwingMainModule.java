@@ -1,6 +1,5 @@
 package com.clean.swing.app;
 
-import com.clean.core.app.services.NavigationService;
 
 /**
  *
