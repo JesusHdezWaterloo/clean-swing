@@ -42,6 +42,8 @@ public abstract class DefaultSwingApplication implements AbstractSwingApplicatio
             default:
                 return;
         }
+        //la sigo propagando
+        propertyChangeSupport.firePropertyChange(evt.getPropertyName(), evt.getOldValue(), evt.getNewValue());
     }
 
     @Override
@@ -63,4 +65,28 @@ public abstract class DefaultSwingApplication implements AbstractSwingApplicatio
     public void initRootView(RootView root) {
         this.ROOT_VIEW = root;
     }
+
+    //Trabajo con property change
+    private transient final java.beans.PropertyChangeSupport propertyChangeSupport = new java.beans.PropertyChangeSupport(this);
+
+    /**
+     * Add PropertyChangeListener.
+     *
+     * @param listener
+     */
+    @Override
+    public void addPropertyChangeListener(java.beans.PropertyChangeListener listener) {
+        propertyChangeSupport.addPropertyChangeListener(listener);
+    }
+
+    /**
+     * Remove PropertyChangeListener.
+     *
+     * @param listener
+     */
+    @Override
+    public void removePropertyChangeListener(java.beans.PropertyChangeListener listener) {
+        propertyChangeSupport.removePropertyChangeListener(listener);
+    }
+
 }

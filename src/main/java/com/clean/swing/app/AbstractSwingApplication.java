@@ -38,4 +38,8 @@ public interface AbstractSwingApplication extends NavigationService {
     public void closeApplication();
 
     public void show();
+
+    public void addPropertyChangeListener(java.beans.PropertyChangeListener listener);
+
+    public void removePropertyChangeListener(java.beans.PropertyChangeListener listener);
 }
