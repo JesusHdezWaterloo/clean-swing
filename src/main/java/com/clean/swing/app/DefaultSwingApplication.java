@@ -37,6 +37,7 @@ public abstract class DefaultSwingApplication implements AbstractSwingApplicatio
     public void propertyChange(PropertyChangeEvent evt) {
         switch (evt.getPropertyName()) {
             case RootView.ON_WINDOWS_CLOSING:
+                closeModules();
                 closeApplication();
                 break;
             default:

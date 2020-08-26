@@ -33,6 +33,12 @@ public interface AbstractSwingApplication extends NavigationService {
         rootView().dashboard().format();
     }
 
+    public default void closeModules() {
+        for (AbstractSwingModule module : installedModules()) {
+            module.closeModule();
+        }
+    }
+
     public void init() throws Exception;
 
     public void closeApplication();
