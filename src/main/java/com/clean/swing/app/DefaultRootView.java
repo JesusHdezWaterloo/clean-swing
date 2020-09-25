@@ -7,6 +7,8 @@ import java.awt.BorderLayout;
 import java.awt.CardLayout;
 import java.awt.Component;
 import java.beans.PropertyChangeListener;
+import java.util.HashMap;
+import java.util.Map;
 import javax.swing.JPanel;
 
 /**
@@ -71,12 +73,32 @@ public abstract class DefaultRootView extends RootView implements CardComponent<
 
     @Override
     public void addView(String name, Component compoment) {
+        compoment.setName(name);
         panelContent.add(name, compoment);
     }
 
     @Override
     public Component getView(String string) {
-        return null;
+        for (Component c : panelContent.getComponents()) {
+            if (c.isVisible()) {
+                return c;
+            }
+        }
+        return panelContent;
+    }
+
+    @Override
+    public void removeView(Component component) {
+        panelContent.remove(component);
+    }
+
+    @Override
+    public Map<String, Component> getAll() {
+        Map<String, Component> m = new HashMap();
+        for (Component component : panelContent.getComponents()) {
+            m.put(component.getName(), component);
+        }
+        return m;
     }
 
     @Override
