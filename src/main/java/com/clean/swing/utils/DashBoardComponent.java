@@ -14,6 +14,10 @@ import javax.swing.Icon;
  */
 public class DashBoardComponent {
 
+    public static DashBoardComponent from(String name, Icon icon, String nav, Component view) {
+        return new DashBoardComponent(name, icon, nav, view);
+    }
+
     public String name;
     public Icon icon;
     public String nav;
