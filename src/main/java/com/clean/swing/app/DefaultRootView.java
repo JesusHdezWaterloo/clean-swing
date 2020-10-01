@@ -6,6 +6,8 @@ import com.clean.swing.utils.CardComponent;
 import java.awt.BorderLayout;
 import java.awt.CardLayout;
 import java.awt.Component;
+import java.awt.Dimension;
+import java.awt.Toolkit;
 import java.beans.PropertyChangeListener;
 import java.util.HashMap;
 import java.util.Map;
@@ -48,7 +50,11 @@ public abstract class DefaultRootView extends RootView implements CardComponent<
         this.setLocationRelativeTo(null);
         this.setExtendedState(MAXIMIZED_BOTH);
 
+        Dimension d = Toolkit.getDefaultToolkit().getScreenSize();
+        this.setPreferredSize(new Dimension(d.width / 2, d.height / 2));
+
         addWindowListener(new java.awt.event.WindowAdapter() {
+            @Override
             public void windowClosing(java.awt.event.WindowEvent evt) {
                 exitForm(evt);
             }
