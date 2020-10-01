@@ -1,5 +1,5 @@
-rootProject.name = 'CleanSwing'
+rootProject.name = 'clean-swing'
 
-include ':clean-core'
+include ':clean-core-full'
 
-project(':clean-core').projectDir = "E:\\Trabajos\\Projects\\GIT Projects Gradle\\CleanCoreFull" as File
+project(':clean-core-full').projectDir = "E:\\Trabajos\\Projects\\GIT Projects Gradle\\clean-core-full" as File
