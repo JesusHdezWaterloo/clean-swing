@@ -16,6 +16,8 @@ public interface CardComponent<ComponentType extends Component> {
 
     public ComponentType getView(String name);
 
+    public String getSelectedViewName();
+
     public void removeView(ComponentType component);
 
     public Map<String, ComponentType> getAll();
