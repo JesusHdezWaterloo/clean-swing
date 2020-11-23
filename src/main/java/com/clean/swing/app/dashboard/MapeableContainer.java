@@ -16,6 +16,11 @@ public abstract class MapeableContainer extends Container implements Mappeable<S
 
     @Override
     public void addKeyValue(String key, Object component) {
+        addKeyValue(key, component, -1);
+    }
+
+    @Override
+    public void addKeyValue(String key, Object component, int pos) {
         Class clss = DashboardConstants.getClassType(key);
         if (clss.equals(List.class)) {
             List oldList;
@@ -25,7 +30,11 @@ public abstract class MapeableContainer extends Container implements Mappeable<S
             } else {
                 oldList = (List) list;
             }
-            oldList.add(component);
+            if (pos < 0 || pos > oldList.size()) {
+                oldList.add(component);
+            } else {
+                oldList.add(pos, component);
+            }
             elementsMap.put(key, oldList);
         } else {
             elementsMap.put(key, component);
