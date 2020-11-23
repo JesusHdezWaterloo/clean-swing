@@ -4,7 +4,7 @@ plugins {
 
 group = 'com.clean.swing'
 
-version = '1.2.1.RELEASE.20201121'
+version = '1.2.2.RELEASE.20201122'
 
 repositories {
     jcenter()
