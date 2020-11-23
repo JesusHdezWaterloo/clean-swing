@@ -83,16 +83,25 @@ public abstract class DefaultRootView extends RootView implements CardComponent<
         panelContent.add(name, compoment);
     }
 
-    @Override
+  @Override
     public Component getView(String string) {
         for (Component c : panelContent.getComponents()) {
-            if (c.isVisible()) {
+            if (c.getName().equals(string)) {
                 return c;
             }
         }
         return panelContent;
     }
 
+    @Override
+    public String getSelectedViewName() {
+        for (Component c : panelContent.getComponents()) {
+            if (c.isVisible()) {
+                return c.getName();
+            }
+        }
+        return "NO VIEW SELECTED";
+    }
     @Override
     public void removeView(Component component) {
         panelContent.remove(component);

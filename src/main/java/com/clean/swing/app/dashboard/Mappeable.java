@@ -20,6 +20,8 @@ public interface Mappeable<K, V> {
      */
     public void addKeyValue(K key, V value);
 
+    public void addKeyValue(K key, V value, int pos);
+
     /**
      * Call to addKeyValue and inmediatly after to update.
      *
