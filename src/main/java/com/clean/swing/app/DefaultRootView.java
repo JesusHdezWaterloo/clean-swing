@@ -83,7 +83,7 @@ public abstract class DefaultRootView extends RootView implements CardComponent<
         panelContent.add(name, compoment);
     }
 
-  @Override
+    @Override
     public Component getView(String string) {
         for (Component c : panelContent.getComponents()) {
             if (c.getName().equals(string)) {
@@ -102,6 +102,7 @@ public abstract class DefaultRootView extends RootView implements CardComponent<
         }
         return "NO VIEW SELECTED";
     }
+
     @Override
     public void removeView(Component component) {
         panelContent.remove(component);
@@ -128,8 +129,12 @@ public abstract class DefaultRootView extends RootView implements CardComponent<
 
     @Override
     public void navigateTo(String name, Object... o) {
-        showView(name);
-        DASHBOARD.showView(name);
+        if (name.equals(LOGIN_NAME) || name.equals(DASH_NAME)) {
+            showView(name);
+        } else {
+            DASHBOARD.showView(name);
+        }
+        firePropertyChange(FIRE_NAVIGATE_TO, "", name);
     }
 
 }
