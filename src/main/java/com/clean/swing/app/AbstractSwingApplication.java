@@ -21,6 +21,12 @@ public interface AbstractSwingApplication extends NavigationService {
 
     public void initRootView(RootView root);
 
+    public default void validateRootView() {//este es que al final actualiza todo
+        rootView().dashboard().update(rootView().dashboard().getMap());
+        rootView().dashboard().format();
+        rootView().dashboard().revalidate();
+    }
+
     /**
      * Call to all start in the folowing order:<\br>
      * 1 - startApplication <\br>

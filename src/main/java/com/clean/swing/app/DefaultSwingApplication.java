@@ -37,14 +37,13 @@ public abstract class DefaultSwingApplication implements AbstractSwingApplicatio
                 ((AbstractSwingMainModule) modulo).register(this);
             }
         }
-        rootView().dashboard().update(rootView().dashboard().getMap());//este es que al final actualiza todo
-        rootView().dashboard().format();
-        rootView().dashboard().revalidate();
+        this.validateRootView();
     }
 
     @Override
     public void desinstallModules() {
         this.rootView().dashboard().clear();
+        this.validateRootView();
     }
 
     @Override
