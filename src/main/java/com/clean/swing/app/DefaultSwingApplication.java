@@ -82,8 +82,7 @@ public abstract class DefaultSwingApplication implements AbstractSwingApplicatio
     @Override
     public void initRootView(RootView root) {
         this.ROOT_VIEW = root;
-        this.ROOT_VIEW.addPropertyChangeListener(this);
-        this.ROOT_VIEW.navigateTo(LOGIN_NAME);
+        this.ROOT_VIEW.navigateTo(LOGIN_NAME);//cuando inicie siempre voy al login
     }
 
     //Trabajo con property change
