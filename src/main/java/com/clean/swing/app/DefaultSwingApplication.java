@@ -1,8 +1,10 @@
 package com.clean.swing.app;
 
+import static com.clean.swing.app.RootView.LOGIN_NAME;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -24,13 +26,24 @@ public abstract class DefaultSwingApplication implements AbstractSwingApplicatio
 
     @Override
     public void registerModule(AbstractSwingMainModule... modulesToInstall) {
-        for (AbstractSwingMainModule modulo : modulesToInstall) {
-            modulo.register(this);
-            this.installedModules().add(modulo);
+        this.installedModules().addAll(Arrays.asList(modulesToInstall));
+    }
+
+    @Override
+    public void installModules() {
+        desinstallModules();//antes de instalarlos me aseguro que se desinstalen para no repetir
+        for (AbstractSwingModule modulo : INSTALLED_MODULES) {
+            if (modulo instanceof AbstractSwingMainModule) {
+                ((AbstractSwingMainModule) modulo).register(this);
+            }
         }
-        rootView().dashboard().update(rootView().dashboard().getMap());//este es que al final actualiza todo
-        rootView().dashboard().format();
-        rootView().dashboard().revalidate();
+        this.validateRootView();
+    }
+
+    @Override
+    public void desinstallModules() {
+        this.rootView().dashboard().clear();
+        this.validateRootView();
     }
 
     @Override
@@ -39,6 +52,9 @@ public abstract class DefaultSwingApplication implements AbstractSwingApplicatio
             case RootView.ON_WINDOWS_CLOSING:
                 closeModules();
                 closeApplication();
+                break;
+            case RootView.FIRE_NAVIGATE_TO:
+                rootNavigateTo((String) evt.getNewValue());
                 break;
             default:
                 return;
@@ -65,6 +81,7 @@ public abstract class DefaultSwingApplication implements AbstractSwingApplicatio
     @Override
     public void initRootView(RootView root) {
         this.ROOT_VIEW = root;
+        this.ROOT_VIEW.navigateTo(LOGIN_NAME);//cuando inicie siempre voy al login
     }
 
     //Trabajo con property change
@@ -88,6 +105,17 @@ public abstract class DefaultSwingApplication implements AbstractSwingApplicatio
     @Override
     public void removePropertyChangeListener(java.beans.PropertyChangeListener listener) {
         propertyChangeSupport.removePropertyChangeListener(listener);
+    }
+
+    private void rootNavigateTo(String name) {
+        switch (name) {
+            case RootView.DASH_NAME:
+                installModules();
+                break;
+            case RootView.LOGIN_NAME:
+                desinstallModules();
+                break;
+        }
     }
 
 }

@@ -63,6 +63,11 @@ public abstract class MapeableContainer extends Container implements Mappeable<S
         return elementsMap.remove(key) != null;
     }
 
+    @Override
+    public void clear() {
+        elementsMap.clear();
+    }
+
     /**
      * Si esta dentro de una lista lo elimino internamente, sino elimino normal
      *
