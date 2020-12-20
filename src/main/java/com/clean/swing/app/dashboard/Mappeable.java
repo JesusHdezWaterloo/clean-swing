@@ -69,6 +69,12 @@ public interface Mappeable<K, V> {
     public boolean removeKey(K key);
 
     /**
+     * Remove the all values.<\br>
+     *
+     */
+    public void clear();
+
+    /**
      * Call to removeKey and inmediatly after to update.
      *
      * @param key

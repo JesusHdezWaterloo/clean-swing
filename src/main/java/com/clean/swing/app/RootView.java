@@ -16,6 +16,7 @@ public abstract class RootView extends JFrame implements NavigationService {
     public static final String DASH_NAME = "DASHBOARD";
     public static final String LOGIN_NAME = "LOGIN";
     public static final String ON_WINDOWS_CLOSING = "windows.closing";
+    public static final String FIRE_NAVIGATE_TO = "navigate_to";
 
     public RootView(PropertyChangeListener listener) throws HeadlessException {
         this.addPropertyChangeListener(listener);

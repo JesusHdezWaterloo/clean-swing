@@ -13,9 +13,19 @@ public interface AbstractSwingApplication extends NavigationService {
 
     public void registerModule(AbstractSwingMainModule... moduleToInstall);
 
+    public void installModules();
+
+    public void desinstallModules();
+
     public RootView rootView();
 
     public void initRootView(RootView root);
+
+    public default void validateRootView() {//este es que al final actualiza todo
+        rootView().dashboard().update(rootView().dashboard().getMap());
+        rootView().dashboard().format();
+        rootView().dashboard().revalidate();
+    }
 
     /**
      * Call to all start in the folowing order:<\br>
@@ -29,8 +39,6 @@ public interface AbstractSwingApplication extends NavigationService {
      */
     public default void run() throws Exception {
         init();
-        rootView().dashboard().update(rootView().dashboard().getMap());//este es que al final actualiza todo
-        rootView().dashboard().format();
     }
 
     public default void closeModules() {
