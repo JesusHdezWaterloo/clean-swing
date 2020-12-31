@@ -14,5 +14,5 @@ repositories {
 dependencies {
     testCompile 'junit:junit:4.12'
     
-    implementation project(':clean-core-full')
+    implementation project(':clean-core')
 }
