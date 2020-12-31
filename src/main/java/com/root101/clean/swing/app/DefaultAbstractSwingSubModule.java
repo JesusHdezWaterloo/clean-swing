@@ -14,16 +14,21 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.clean.swing.app;
-
-import com.root101.clean.core.app.services.NavigationService;
+package com.root101.clean.swing.app;
 
 /**
  * 
  * @author Root101 (jhernandezb96@gmail.com, +53-5-426-8660)
  * @author JesusHdezWaterloo@Github
  */
-public interface AbstractSwingModule extends NavigationService {
+public abstract class DefaultAbstractSwingSubModule implements AbstractSwingSubModule {
 
-    public void closeModule();
+    @Override
+    public void closeModule() {
+    }
+
+    @Override
+    public void navigateTo(String string, Object... os) {
+    }
+
 }

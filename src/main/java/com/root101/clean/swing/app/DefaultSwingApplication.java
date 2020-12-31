@@ -14,9 +14,9 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.clean.swing.app;
+package com.root101.clean.swing.app;
 
-import static com.clean.swing.app.RootView.LOGIN_NAME;
+import static com.root101.clean.swing.app.RootView.LOGIN_NAME;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 import java.util.ArrayList;

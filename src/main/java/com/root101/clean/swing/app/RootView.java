@@ -14,11 +14,11 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.clean.swing.app;
+package com.root101.clean.swing.app;
 
 import com.root101.clean.core.app.services.NavigationService;
-import com.clean.swing.app.dashboard.DashBoardSimple;
-import com.clean.swing.app.login.LoginSimple;
+import com.root101.clean.swing.app.dashboard.DashBoardSimple;
+import com.root101.clean.swing.app.login.LoginSimple;
 import java.awt.HeadlessException;
 import java.beans.PropertyChangeListener;
 import javax.swing.JFrame;

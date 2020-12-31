@@ -14,21 +14,19 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.clean.swing.app;
+package com.root101.clean.swing.app.dashboard;
+
+import com.root101.clean.swing.utils.CardComponent;
+import java.awt.Component;
 
 /**
  * 
  * @author Root101 (jhernandezb96@gmail.com, +53-5-426-8660)
  * @author JesusHdezWaterloo@Github
  */
-public abstract class DefaultAbstractSwingSubModule implements AbstractSwingSubModule {
+public abstract class DashBoardSimple extends MapeableContainer implements CardComponent<Component> {
 
-    @Override
-    public void closeModule() {
-    }
+    public abstract void deselectAll();
 
-    @Override
-    public void navigateTo(String string, Object... os) {
-    }
-
+    public abstract void format();
 }

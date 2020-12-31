@@ -14,7 +14,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.clean.swing.app.dashboard;
+package com.root101.clean.swing.app.dashboard;
 
 import java.awt.Container;
 import java.util.ArrayList;

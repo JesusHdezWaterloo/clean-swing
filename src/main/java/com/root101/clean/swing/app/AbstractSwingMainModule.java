@@ -14,25 +14,15 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.clean.swing.app;
+package com.root101.clean.swing.app;
+
 
 /**
- *
+ * 
  * @author Root101 (jhernandezb96@gmail.com, +53-5-426-8660)
  * @author JesusHdezWaterloo@Github
  */
-public abstract class DefaultAbstractSwingMainModule implements AbstractSwingMainModule {
+public interface AbstractSwingMainModule extends AbstractSwingModule {
 
-    @Override
-    public void register(AbstractSwingApplication dashBoard) {
-    }
-
-    @Override
-    public void closeModule() {
-    }
-
-    @Override
-    public void navigateTo(String string, Object... os) {
-    }
-
+    public void register(AbstractSwingApplication dashBoard);
 }

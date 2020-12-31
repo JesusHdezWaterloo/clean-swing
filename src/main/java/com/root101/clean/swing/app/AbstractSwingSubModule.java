@@ -14,15 +14,17 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.clean.swing.app;
+package com.root101.clean.swing.app;
 
+import java.util.List;
+import javax.swing.Action;
 
 /**
  * 
  * @author Root101 (jhernandezb96@gmail.com, +53-5-426-8660)
  * @author JesusHdezWaterloo@Github
  */
-public interface AbstractSwingMainModule extends AbstractSwingModule {
+public interface AbstractSwingSubModule extends AbstractSwingModule {
 
-    public void register(AbstractSwingApplication dashBoard);
+    public List<Action> register(AbstractSwingApplication dashBoard);
 }

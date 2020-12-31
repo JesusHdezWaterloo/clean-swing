@@ -14,21 +14,16 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.clean.swing.app.login;
+package com.root101.clean.swing.app;
 
-import java.awt.Container;
-import java.awt.event.ActionListener;
+import com.root101.clean.core.app.services.NavigationService;
 
 /**
  * 
  * @author Root101 (jhernandezb96@gmail.com, +53-5-426-8660)
  * @author JesusHdezWaterloo@Github
  */
-public abstract class LoginSimple extends Container {
+public interface AbstractSwingModule extends NavigationService {
 
-    public abstract void addLoginAction(ActionListener action);
-
-    public abstract String getUser();
-
-    public abstract String getPass();
+    public void closeModule();
 }

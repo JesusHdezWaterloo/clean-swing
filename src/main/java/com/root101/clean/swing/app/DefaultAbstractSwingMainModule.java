@@ -14,36 +14,25 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.clean.swing.utils;
-
-import java.awt.Component;
-import java.util.Map;
+package com.root101.clean.swing.app;
 
 /**
- * 
+ *
  * @author Root101 (jhernandezb96@gmail.com, +53-5-426-8660)
  * @author JesusHdezWaterloo@Github
- * @param <ComponentType> 
  */
-public interface CardComponent<ComponentType extends Component> {
+public abstract class DefaultAbstractSwingMainModule implements AbstractSwingMainModule {
 
-    public void addView(String name, ComponentType compoment);
-
-    public void showView(String name);
-
-    public ComponentType getView(String name);
-
-    public String getSelectedViewName();
-
-    public void removeView(ComponentType component);
-
-    public Map<String, ComponentType> getAll();
-
-    public default void removeGroupView(String group) {
-        for (Map.Entry<String, ComponentType> entry : getAll().entrySet()) {
-            if (entry.getKey().startsWith(group)) {
-                removeView(entry.getValue());
-            }
-        }
+    @Override
+    public void register(AbstractSwingApplication dashBoard) {
     }
+
+    @Override
+    public void closeModule() {
+    }
+
+    @Override
+    public void navigateTo(String string, Object... os) {
+    }
+
 }

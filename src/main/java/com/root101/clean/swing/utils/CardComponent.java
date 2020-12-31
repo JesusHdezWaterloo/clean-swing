@@ -14,19 +14,36 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.clean.swing.app.dashboard;
+package com.root101.clean.swing.utils;
 
-import com.clean.swing.utils.CardComponent;
 import java.awt.Component;
+import java.util.Map;
 
 /**
  * 
  * @author Root101 (jhernandezb96@gmail.com, +53-5-426-8660)
  * @author JesusHdezWaterloo@Github
+ * @param <ComponentType> 
  */
-public abstract class DashBoardSimple extends MapeableContainer implements CardComponent<Component> {
+public interface CardComponent<ComponentType extends Component> {
 
-    public abstract void deselectAll();
+    public void addView(String name, ComponentType compoment);
 
-    public abstract void format();
+    public void showView(String name);
+
+    public ComponentType getView(String name);
+
+    public String getSelectedViewName();
+
+    public void removeView(ComponentType component);
+
+    public Map<String, ComponentType> getAll();
+
+    public default void removeGroupView(String group) {
+        for (Map.Entry<String, ComponentType> entry : getAll().entrySet()) {
+            if (entry.getKey().startsWith(group)) {
+                removeView(entry.getValue());
+            }
+        }
+    }
 }
