@@ -20,10 +20,10 @@ import java.awt.Component;
 import java.util.Map;
 
 /**
- * 
+ *
  * @author Root101 (jhernandezb96@gmail.com, +53-5-426-8660)
  * @author JesusHdezWaterloo@Github
- * @param <ComponentType> 
+ * @param <ComponentType>
  */
 public interface CardComponent<ComponentType extends Component> {
 
