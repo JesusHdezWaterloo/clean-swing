@@ -4,7 +4,7 @@ plugins {
 
 group = 'com.root101.clean'
 
-version = '3.0.0.RELEASE.20201230'
+version = '4.0.0.RELEASE.20210627'
 
 repositories {
     jcenter()
@@ -12,7 +12,5 @@ repositories {
 }
 
 dependencies {
-    testCompile 'junit:junit:4.12'
-    
     implementation project(':clean-core')
 }

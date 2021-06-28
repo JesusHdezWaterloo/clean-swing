@@ -19,11 +19,11 @@ package com.root101.clean.swing.app.dashboard;
 import java.util.HashMap;
 
 /**
- * 
+ *
  * @author Root101 (jhernandezb96@gmail.com, +53-5-426-8660)
  * @author JesusHdezWaterloo@Github
  * @param <K>
- * @param <V> 
+ * @param <V>
  */
 public interface Mappeable<K, V> {
 
